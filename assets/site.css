@@ -1,0 +1,29 @@
+:root{--bg:#fbf8f1;--card:#fffdf8;--fg:#222;--muted:#6b665c;--line:#e3ddcf;--tile:#d3cfc4;--g:#538d4e;--o:#e08a1e;--b:#3a3a3c}
+@media(prefers-color-scheme:dark){:root{--bg:#121213;--card:#1b1b1d;--fg:#f4f4f4;--muted:#a4a29c;--line:#2f2f32;--tile:#3a3a3c}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Georgia,"Times New Roman",serif;line-height:1.55}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.sans{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+header.site{border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-weight:700;letter-spacing:2px;text-decoration:none;font-size:18px;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-grid;place-items:center;width:26px;height:26px;background:var(--g);color:#fff;font:700 15px sans-serif;font-style:normal;border-radius:3px;letter-spacing:0}
+header.site nav{display:flex;gap:22px;font:600 14px system-ui,sans-serif}
+header.site nav a{text-decoration:none;color:var(--muted)}
+header.site nav a:hover,header.site nav a[aria-current]{color:var(--fg)}
+.btn{display:inline-block;font:700 16px system-ui,sans-serif;padding:13px 24px;border-radius:6px;text-decoration:none;border:2px solid transparent}
+.btn.primary{background:var(--g);color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--muted)}
+.eyebrow{font:700 12px system-ui,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--o)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px}
+h1,h2,h3{line-height:1.15;margin:0}
+footer.site{border-top:1px solid var(--line);margin-top:80px;padding:28px 0;color:var(--muted);font:14px system-ui,sans-serif}
+footer.site .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tiles{display:inline-flex;gap:5px}
+.tiles b{display:inline-grid;place-items:center;width:44px;height:44px;font:700 22px sans-serif;color:#fff;text-transform:uppercase}
+.tiles b.g{background:var(--g)}.tiles b.o{background:var(--o)}.tiles b.b{background:var(--b)}
+.tiles b.e{background:transparent;color:var(--fg);border:2px solid var(--tile)}
+@media(max-width:640px){header.site nav{gap:14px;font-size:13px}.brand span{display:none}}
