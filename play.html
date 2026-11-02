@@ -10,7 +10,7 @@ h1{margin:10px 0 2px;font-size:26px;letter-spacing:2px}.sub{font-size:12px;opaci
 .t{width:min(14vw,58px);height:min(14vw,58px);border:2px solid var(--tile);display:flex;align-items:center;justify-content:center;font:700 28px sans-serif;text-transform:uppercase}
 .t.f{border-color:#888}.t.sel{border-color:var(--o);box-shadow:0 0 0 2px var(--o)}.t{cursor:pointer;touch-action:manipulation}.t.g,.t.o,.t.b{color:#fff;border-color:transparent}
 .g{background:var(--g)}.o{background:var(--o)}.b{background:var(--b)}
-.shake{animation:sh 1.2s}@keyframes sh{0%,100%{transform:translateX(0)}5%,15%,25%,35%,45%,55%,65%,75%,85%,95%{transform:translateX(-7px)}10%,20%,30%,40%,50%,60%,70%,80%,90%{transform:translateX(7px)}}.flip{animation:fl .5s ease-in-out}.k.ent{font-size:30px;line-height:1}@keyframes fl{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+.shake{animation:sh .8s}@keyframes sh{0%,100%{transform:translateX(0)}7.14%,21.43%,35.71%,50.0%,64.29%,78.57%,92.86%{transform:translateX(-7px)}14.29%,28.57%,42.86%,57.14%,71.43%,85.71%{transform:translateX(7px)}}.flip{animation:fl .5s ease-in-out}.k.ent{font-size:30px;line-height:1}@keyframes fl{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
 #kb{width:100%;max-width:500px;margin-top:auto;padding-bottom:8px}
 .kr{display:flex;gap:5px;justify-content:center;margin:5px 0}
 .k{flex:1;height:52px;border:0;border-radius:4px;background:var(--key);color:var(--fg);font:700 14px sans-serif;text-transform:uppercase;padding:0}
@@ -56,10 +56,10 @@ paint()}
 function reveal(){const i=st.g.length-1,g=st.g[i],sc=score(g,ANSWER);anim=i;paint();rows[i].ts.forEach((t,j)=>setTimeout(()=>{t.classList.add("flip");setTimeout(()=>{t.classList.add(sc[j])},250)},j*350));setTimeout(()=>{anim=-1;paint()},4*350+600)}
 function shake(){const r=rows[st.g.length].r;r.classList.remove("shake");void r.offsetWidth;r.classList.add("shake")}
 document.addEventListener("keydown",e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;press(e.key.length==1?e.key.toLowerCase():e.key)});
-document.getElementById("share").onclick=async()=>{const em={g:"🟩",o:"🟧",b:"⬛"};
+document.getElementById("share").onclick=async()=>{const em={g:"🟩",o:"🟧",b:"⬛"};const U=location.origin+location.pathname;
 const txt="KJV Wordle #"+(num+1)+" "+(st.won?st.g.length:"X")+"/6\n\n"+st.g.map(g=>score(g,ANSWER).map(s=>em[s]).join("")).join("\n");
-try{if(navigator.share){await navigator.share({text:txt});return}}catch(e){}
-try{await navigator.clipboard.writeText(txt);msg("Copied to clipboard")}catch(e){prompt("Copy:",txt)}};
+try{if(navigator.share){await navigator.share({text:txt+"\n\n"+U});return}}catch(e){}
+try{await navigator.clipboard.writeText(txt+"\n\n"+U);msg("Copied to clipboard")}catch(e){prompt("Copy:",txt+"\n\n"+U)}};
 function tick(){const n=new Date(),m=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1)-n,h=Math.floor(m/36e5),mi=Math.floor(m%36e5/6e4);document.getElementById("cd").textContent="Next puzzle in "+h+"h "+mi+"m"}
 tick();setInterval(tick,3e4);paint();submit();
 </script></body></html>
