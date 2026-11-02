@@ -49,6 +49,7 @@ section h2{font-size:34px;margin:8px 0 26px}
       <div class="cta">
         <a class="btn primary" href="play.html">Play today’s puzzle</a>
         <a class="btn ghost" href="how-to-play.html">How to play</a>
+        <a class="btn ghost" href="#" id="invite">Share with a friend</a>
       </div>
       <div class="live" id="live"></div>
     </div>
@@ -89,6 +90,12 @@ section h2{font-size:34px;margin:8px 0 26px}
 <script>
 const now=new Date(),num=Math.max(0,Math.round((Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())-Date.UTC(2026,10,1))/864e5));
 
+</script>
+<script>
+document.getElementById("invite").onclick=async e=>{e.preventDefault();const b=e.currentTarget,u=location.origin+location.pathname.replace(/[^\/]*$/,"")+"play.html",t="Try KJV Wordle, a daily five-letter word game with words from the King James Bible.";
+try{if(navigator.share){await navigator.share({title:"KJV Wordle",text:t,url:u});return}}catch(x){}
+try{await navigator.clipboard.writeText(t+" "+u);b.textContent="Link copied!"}catch(x){prompt("Copy this link:",u)}
+setTimeout(()=>b.textContent="Share with a friend",2000)};
 </script>
 </body>
 </html>
