@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to play — KJV Wordle</title>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+main{max-width:720px}
+h1{font-size:40px;margin:8px 0 10px}
+.intro{font-size:19px;color:var(--muted);margin:0 0 32px}
+h2{font-size:24px;margin:40px 0 12px}
+ul.rules{padding-left:20px;margin:0}
+ul.rules li{margin:8px 0}
+.ex{margin:20px 0}
+.ex p{margin:10px 0 0;color:var(--muted)}
+.ex strong{color:var(--fg)}
+kbd{font:600 13px system-ui,sans-serif;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--card)}
+dl{margin:0}dt{font-weight:700;margin-top:18px}dd{margin:4px 0 0;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../"><i>K</i><span>KJV WORDLE</span></a>
+  <nav><a href="../how-to-play/" aria-current="page">How to play</a><a href="../dashboard/">Stats</a><a href="../play/">Play</a></nav>
+</div></header>
+
+<main class="wrap" style="padding-top:44px">
+  <div class="eyebrow">How to play</div>
+  <h1>Guess the word in six tries</h1>
+  <p class="intro">Each day there is one hidden five-letter word from the King James Bible. Everyone gets the same word.</p>
+
+  <ul class="rules">
+    <li>Each guess must be a five-letter word from the KJV word list.</li>
+    <li>Press <kbd>Enter</kbd> (↵) to submit a guess. The tiles change color to show how close you were.</li>
+    <li>You can tap any tile in the current row to jump to it and fill or fix that letter.</li>
+    <li>A new puzzle appears at midnight, your local time.</li>
+  </ul>
+
+  <h2>Examples</h2>
+  <div class="card ex"><div class="tiles"><b class="g">H</b><b class="e">E</b><b class="e">A</b><b class="e">R</b><b class="e">T</b></div><p><strong>H</strong> is in the word and in the right spot.</p></div>
+  <div class="card ex"><div class="tiles"><b class="e">G</b><b class="e">R</b><b class="o">A</b><b class="e">C</b><b class="e">E</b></div><p><strong>A</strong> is in the word but in a different spot.</p></div>
+  <div class="card ex"><div class="tiles"><b class="e">B</b><b class="e">R</b><b class="e">E</b><b class="b">A</b><b class="e">D</b></div><p><strong>A</strong> is not in the word anywhere.</p></div>
+
+  <h2>Questions</h2>
+  <dl>
+    <dt>What kinds of words come up?</dt>
+    <dd>Any five-letter word from the King James text. That includes everyday words, archaic forms like <em>doeth</em> and <em>durst</em>, and names of people and places like <em>Caleb</em> and <em>Joppa</em>.</dd>
+    <dt>What about repeated letters?</dt>
+    <dd>A letter is only marked orange as many times as it appears in the answer. Extra copies are shown dark.</dd>
+    <dt>Where are my stats kept?</dt>
+    <dd>Your games are saved in your browser and shown on the <a href="../dashboard/">dashboard</a>. Nothing is sent anywhere, and nothing that identifies you is collected.</dd>
+  </dl>
+
+  <p style="margin-top:40px"><a class="btn primary" href="../play/">Play today’s puzzle</a></p>
+</main>
+
+<footer class="site"><div class="wrap"><span>KJV Wordle</span><span><a href="../play/">Play</a> · <a href="../dashboard/">Stats</a> · <a href="../">Home</a></span></div></footer>
+</body>
+</html>
