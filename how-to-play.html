@@ -18,6 +18,13 @@ ul.rules li{margin:8px 0}
 kbd{font:600 13px system-ui,sans-serif;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--card)}
 dl{margin:0}dt{font-weight:700;margin-top:18px}dd{margin:4px 0 0;color:var(--muted)}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1b2a41">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KJV Wordle">
 </head>
 <body>
 <header class="site"><div class="wrap">
@@ -56,5 +63,6 @@ dl{margin:0}dt{font-weight:700;margin-top:18px}dd{margin:4px 0 0;color:var(--mut
 </main>
 
 <footer class="site"><div class="wrap"><span>KJV Wordle</span><span><a href="play.html">Play</a> · <a href="dashboard.html">Stats</a> · <a href="index.html">Home</a></span></div></footer>
+<script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </body>
 </html>

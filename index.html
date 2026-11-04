@@ -33,6 +33,13 @@ section h2{font-size:34px;margin:8px 0 26px}
 .final p{opacity:.8;margin:0 0 26px}
 @media(max-width:860px){.hero{grid-template-columns:1fr;gap:40px;padding-top:40px}.shot{max-width:460px;margin:0 auto}.features,.how{grid-template-columns:1fr}}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1b2a41">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KJV Wordle">
 </head>
 <body>
 <header class="site"><div class="wrap">
@@ -50,8 +57,17 @@ section h2{font-size:34px;margin:8px 0 26px}
         <a class="btn primary" href="play.html">Play today’s puzzle</a>
         <a class="btn ghost" href="how-to-play.html">How to play</a>
         <a class="btn ghost" href="#" id="invite">Share with a friend</a>
+        <a class="btn primary" href="#" id="install" style="display:none">Install app</a>
       </div>
       <div class="live" id="live"></div>
+      <div id="ios" style="display:none;margin-top:20px;padding:14px 18px;border:1px solid var(--line);border-radius:8px;max-width:30rem">
+        <strong>Add KJV Wordle to your iPhone</strong>
+        <ol style="margin:8px 0 0;padding-left:20px;line-height:1.6">
+          <li>Open this page in Safari.</li>
+          <li>Tap the Share button (the square with an arrow).</li>
+          <li>Tap Add to Home Screen, then Add.</li>
+        </ol>
+      </div>
     </div>
     <div class="shot"><img src="screenshot.png" width="678" height="856" alt="A KJV Wordle game in progress: AROSE, then TORAH, with NOBAH being typed in"></div>
   </section>
@@ -96,6 +112,16 @@ document.getElementById("invite").onclick=async e=>{e.preventDefault();const b=e
 try{if(navigator.share){await navigator.share({title:"KJV Wordle",text:t,url:u});return}}catch(x){}
 try{await navigator.clipboard.writeText(t+" "+u);b.textContent="Link copied!"}catch(x){prompt("Copy this link:",u)}
 setTimeout(()=>b.textContent="Share with a friend",2000)};
+</script>
+<script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
+<script>
+let dp;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;document.getElementById("install").style.display="inline-block"});
+document.getElementById("install").onclick=async e=>{e.preventDefault();if(!dp)return;dp.prompt();await dp.userChoice;dp=null;e.currentTarget.style.display="none"};
+</script>
+<script>
+(function(){var ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+var installed=navigator.standalone||matchMedia("(display-mode: standalone)").matches;
+if(ios&&!installed)document.getElementById("ios").style.display="block"})();
 </script>
 </body>
 </html>

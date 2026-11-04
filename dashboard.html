@@ -40,6 +40,13 @@ section>.note{color:var(--muted);font:14px system-ui,sans-serif;margin:0 0 16px}
 .alltime{font:14px system-ui,sans-serif;color:var(--muted);margin-top:14px}
 @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
 </style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1b2a41">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KJV Wordle">
 </head>
 <body>
 <header class="site"><div class="wrap">
@@ -106,5 +113,6 @@ return '<li><span>#'+(p+1)+' · '+dateOf(p)+'</span>'+pill+'</li>'}).join(""):'<
 if(todayG&&todayG.done)$("cta").textContent="Back to today’s game";
 
 </script>
+<script>if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 </body>
 </html>
